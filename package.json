@@ -1,0 +1,30 @@
+{
+  "name": "universal-config-loader",
+  "version": "0.1.0",
+  "description": "Universal configuration loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tjhall13/universal-config-loader.git"
+  },
+  "keywords": [
+    "universal",
+    "config",
+    "configuration",
+    "loader",
+    "yaml",
+    "json"
+  ],
+  "author": "Trevor Hall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjhall13/universal-config-loader/issues"
+  },
+  "homepage": "https://github.com/tjhall13/universal-config-loader#readme",
+  "dependencies": {
+    "yaml": "^0.3.0"
+  }
+}

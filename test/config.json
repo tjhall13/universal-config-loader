@@ -1,0 +1,9 @@
+{
+  "application": {
+    "key3": "value3",
+    "array": null
+  },
+  "data": {
+    "key1": "value1"
+  }
+}
