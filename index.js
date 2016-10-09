@@ -30,7 +30,7 @@ function merge(current, update) {
 	}
 }
 
-function eval(prec) {
+function eval(prec, defaults) {
 	return prec.reduce(function(config, file) {
 		var data;
 
@@ -47,7 +47,7 @@ function eval(prec) {
 		} finally {
 			return merge(config, data);
 		}
-	}, { });
+	}, defaults || { });
 }
 
 module.exports = {
