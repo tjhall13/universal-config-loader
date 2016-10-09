@@ -34,22 +34,20 @@ function eval(prec, defaults) {
 	return prec.reduce(function(config, file) {
 		var data;
 
-		if(fs.accessSync(file, fs.constants.R_OK)) {
-			try {
-				var str = fs.readFileSync(file, { encoding: 'utf8' });
-				var filetype = path.extname(file).substr(1);
-				if(parsers[filetype]) {
-					data = parsers[filetype](str);
-				} else {
-					throw new Error('Unknown file extension: ' + filetype);
-				}
-			} catch(e) {
-				console.error('Failed to read from file: ' + file + ' (' + e.message + ')');
-			} finally {
-				return merge(config, data);
+		try {
+			var str = fs.readFileSync(file, { encoding: 'utf8' });
+			var filetype = path.extname(file).substr(1);
+			if(parsers[filetype]) {
+				data = parsers[filetype](str);
+			} else {
+				throw new Error('Unknown file extension: ' + filetype);
 			}
-		} else {
-			return config;
+		} catch(e) {
+			if(e.code != 'ENOENT') {
+				console.error('Failed to read from file: ' + file + ' (' + e.message + ')');
+			}
+		} finally {
+			return merge(config, data);
 		}
 	}, defaults || { });
 }
