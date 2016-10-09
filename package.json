@@ -1,6 +1,6 @@
 {
   "name": "universal-config-loader",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Universal configuration loader",
   "main": "index.js",
   "scripts": {
